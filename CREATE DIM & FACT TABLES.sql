@@ -137,7 +137,9 @@ CREATE TABLE [dbo].[FactSalesOrders](
 ) ON [PRIMARY]
 GO
 
-/**--SHOULD PROBABLY COMBINE PRODUCTCATEGORIES AND PRODUCTCATEGORYTEXT---
+--SHOULD PROBABLY COMBINE PRODUCTCATEGORIES AND PRODUCTCATEGORYTEXT--
+
+/**
 
 /****** Object:  Table [dbo].[DimProductCategories]    Script Date: 9/11/2021 3:19:22 PM ******/
 SET ANSI_NULLS ON
@@ -284,44 +286,11 @@ CREATE TABLE [dbo].[DimProducts_EXT](
 ) ON [PRIMARY]
 GO
 
---CREATE A DIM.DATE TABLE
 
-/****** Object:  Table [dbo].[DimDate]    Script Date: 9/13/2021 11:22:55 AM ******/
-SET ANSI_NULLS ON
-GO
+--For some reason, the code still created the tables that I didnt want.
+-- Drop these tables
 
-SET QUOTED_IDENTIFIER ON
-GO
-
-CREATE TABLE [dbo].[DimDate](
-	[DateKey] [int] IDENTITY(1,1) NOT NULL,
-	[MonthKey] [int] NULL,
-	[FullDateAlternateKey] [date] NOT NULL,
-	[DayNumberOfWeek] [int] NOT NULL,
-	[EnglishDayNameOfWeek] [varchar](50) NOT NULL,
-	[DayNumberOfMonth] [int] NOT NULL,
-	[DayNumberOfYear] [int] NOT NULL,
-	[WeekNumberOfYear] [int] NOT NULL,
-	[EnglishMonthName] [varchar](50) NOT NULL,
-	[MonthNumberOfYear] [int] NOT NULL,
-	[CalendarQuarter] [varchar](50) NOT NULL,
-	[CalendarYear] [int] NOT NULL,
-	[CalendarSemester] [varchar](50) NOT NULL,
-	[FiscalQuarter] [int] NOT NULL,
-	[FiscalYear] [int] NOT NULL,
-	[FiscalSemester] [varchar](50) NOT NULL,
- CONSTRAINT [PK_DimDate] PRIMARY KEY CLUSTERED 
-(
-	[DateKey] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
-ALTER TABLE [dbo].[DimDate]  WITH CHECK ADD  CONSTRAINT [FK_DimDate_DimMonth] FOREIGN KEY([MonthKey])
-REFERENCES [dbo].[DimMonth] ([MonthKey])
-GO
-
-ALTER TABLE [dbo].[DimDate] CHECK CONSTRAINT [FK_DimDate_DimMonth]
-GO
-
-
+DROP TABLE [dbo].[DimProductCategories];
+DROP TABLE [dbo].[DimProductCategoryText];
+DROP TABLE [dbo].[DimProducts];
+DROP TABLE [dbo].[DimProductTexts];
