@@ -1,5 +1,24 @@
 use BikesDB
 
+select * from BusinessPartners 
+--40 rows
+
+
+--checking for new records to determine type of slowly changing dimension)
+select PARTNER_ID, COMPANYNAME, CREATEDAT, CHANGEDAT
+from BusinessPartners
+where CREATEDAT != CHANGEDAT
+group by PARTNER_ID, COMPANYNAME, CREATEDAT, CHANGEDAT
+-- because no records where returned, I assume the create and change dates are the same.  THIS IS A TYPE 3
+
+select PARTNER_ID, COMPANYNAME, CREATEDAT, CHANGEDAT
+from BusinessPartners
+group by PARTNER_ID, COMPANYNAME, CREATEDAT, CHANGEDAT
+-- 40 rows
+
+
+
+
 select top 5 * from Employees
 
 select top 5 * from SalesOrders;   ---THIS IS INFO ABOUT THE ORDER ITSELF
