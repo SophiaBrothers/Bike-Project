@@ -9,7 +9,7 @@ select PARTNER_ID, COMPANYNAME, CREATEDAT, CHANGEDAT
 from BusinessPartners
 where CREATEDAT != CHANGEDAT
 group by PARTNER_ID, COMPANYNAME, CREATEDAT, CHANGEDAT
--- because no records where returned, I assume the create and change dates are the same.  THIS IS A TYPE 3
+-- because no records where returned, I assume the create and change dates are the same.  THIS IS A TYPE 2
 
 select PARTNER_ID, COMPANYNAME, CREATEDAT, CHANGEDAT
 from BusinessPartners
@@ -17,6 +17,12 @@ group by PARTNER_ID, COMPANYNAME, CREATEDAT, CHANGEDAT
 -- 40 rows
 
 
+-- checking for duplicates. determining dimension type
+select * from Addresses
+where ADDRESS_ID in (select ADDRESS_ID from Addresses GROUP BY ADDRESS_ID having COUNT(*) > 1);
+--every address apears unique
+
+select * from Addresses   -- could be a type 2
 
 
 select top 5 * from Employees
