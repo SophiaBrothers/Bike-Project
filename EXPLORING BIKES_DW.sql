@@ -30,3 +30,9 @@ SELECT TOP 5 * FROM stagging_SalesOrders
 
 --Will need to figure out how to tranfer data from multiple tables to each stagging table
 -- without creating an ETL package for each
+
+
+-- TO DELETE ALL RECORDS FROM A TABLE WITHOUT DELETING THE TABLE
+delete from stagging_Addresses
+
+select * from stagging_Addresses
