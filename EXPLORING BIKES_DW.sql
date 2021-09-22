@@ -19,3 +19,14 @@ SELECT TOP 5 * FROM stagging_BusinessPartners
 
 --SUCCESS!!
 
+SELECT TOP 5 * FROM stagging_Addresses
+SELECT TOP 5 * FROM stagging_Employees
+SELECT TOP 5 * FROM stagging_ProductCategories
+SELECT TOP 5 * FROM stagging_ProductCategoryText
+SELECT TOP 5 * FROM stagging_Products
+SELECT TOP 5 * FROM stagging_ProductTexts
+SELECT TOP 5 * FROM stagging_SalesOrderItems
+SELECT TOP 5 * FROM stagging_SalesOrders
+
+--Will need to figure out how to tranfer data from multiple tables to each stagging table
+-- without creating an ETL package for each
