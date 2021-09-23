@@ -36,3 +36,8 @@ SELECT TOP 5 * FROM stagging_SalesOrders
 delete from stagging_Addresses
 
 select * from stagging_Addresses
+
+--I created a new ETL package (SCD.address) that inludes a SCD element. So, when the stagging_address table is
+--called, it will have a new validity start date that matches the date it was loaded into the DW.
+
+
