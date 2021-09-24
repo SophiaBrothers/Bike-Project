@@ -300,19 +300,3 @@ DROP TABLE [dbo].[DimProductTexts];
 -- ADD FORIEGN KEYS
 ---------------------------------------------------------------------------------------------------------------------
 
-ALTER TABLE PLANTS
-ADD SeasonID INT FOREIGN KEY REFERENCES Season(SeasonID);
-
-ALTER TABLE Plants
-ADD GrowthHabitID INT FOREIGN KEY REFERENCES GrowthHabit(GrowthHabitID);
-
-ALTER TABLE Plants
-ADD US_ZoneID INT FOREIGN KEY REFERENCES US_Zone(US_ZoneID);
-
-
---WHY LIKE THIS?
-ALTER TABLE [dbo].[Dim_dept_manager]  WITH CHECK ADD  CONSTRAINT [FK_Dim_dept_manager_Dim_departments] FOREIGN KEY([dept_no])
-REFERENCES [dbo].[Dim_departments] ([dept_no])
-GO
-ALTER TABLE [dbo].[Dim_dept_manager] CHECK CONSTRAINT [FK_Dim_dept_manager_Dim_departments]
-GO
