@@ -1,19 +1,20 @@
 -- TESTING THE ETL SYSTEM FOR SCD TYPE 2
 
 use BikesDB
-GO;
+GO
 
 select * from dbo.Addresses;
 
---make sure change is not permanent with rollback
+
 BEGIN transaction
 UPDATE dbo.Addresses
 set COUNTRY = 'CA'
-where ADDRESS_ID = '1000000034';
+where ADDRESS_ID = '1000000034'
 
+--pick one
 rollback;
-
-
+--OR
+Commit transaction;
 
 
 --check 
@@ -28,7 +29,12 @@ where ADDRESS_ID = '1000000034'
 
 --CHECK THE DW
 USE BikesDW
-GO;
+GO
 
 SELECT * FROM stagging_Addresses
 where ADDRESS_ID = '1000000034'
+
+
+-- WHEN UPDATING RECORDS WITH TRANSACTION, YOU HAVE TO COMMIT CHANGES IN ORDER FOR THE ETL PROCESS TO WORK.
+-- OTHER WISE VISUAL STUDIO WILL GET STUCK WAITING ON RESPONSE
+
