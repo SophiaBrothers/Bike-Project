@@ -137,9 +137,9 @@ CREATE TABLE [dbo].[FactSalesOrders](
 ) ON [PRIMARY]
 GO
 
---SHOULD PROBABLY COMBINE PRODUCTCATEGORIES AND PRODUCTCATEGORYTEXT--
+/**SHOULD PROBABLY COMBINE PRODUCTCATEGORIES AND PRODUCTCATEGORYTEXT
 
-/**
+
 
 /****** Object:  Table [dbo].[DimProductCategories]    Script Date: 9/11/2021 3:19:22 PM ******/
 SET ANSI_NULLS ON
@@ -228,7 +228,7 @@ GO
 
 
 
----CREATE TWO NEW COMBINED TABLES ---
+/**CREATE TWO NEW COMBINED TABLES **/
 
 
 /****** Object:  Table [dbo].[DimProductCat_EXT]    Script Date: 9/13/2021 9:24:02 AM ******/
@@ -287,8 +287,7 @@ CREATE TABLE [dbo].[DimProducts_EXT](
 GO
 
 
---For some reason, the code still created the tables that I didnt want.
--- Drop these tables
+/**For some reason, the code still created the tables that I didnt want.  Drop these tables**/
 
 DROP TABLE [dbo].[DimProductCategories];
 DROP TABLE [dbo].[DimProductCategoryText];
@@ -297,6 +296,6 @@ DROP TABLE [dbo].[DimProductTexts];
 
 
 -------------------------------------------------------------------------------------------------------------------
--- ADD FORIEGN KEYS
----------------------------------------------------------------------------------------------------------------------
+/** ADD FORIEGN KEYS **/
+-------------------------------------------------------------------------------------------------------------------
 
