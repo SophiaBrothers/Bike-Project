@@ -27,7 +27,7 @@ where ADDRESS_ID = '1000000034'
 
 
 
-/**CHECK THE DW**/
+--CHECK THE DW
 USE BikesDW
 GO
 
