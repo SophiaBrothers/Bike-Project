@@ -8,16 +8,16 @@ group by day_name, calendar_date, calendar_year
 
 select top 1 * from DimBusinessPartners
 
-/** Counting columns in table **/
+--Counting columns in table 
 SELECT count(*)
 FROM information_schema.columns
 WHERE table_name = 'DimBusinessPartners'
 
 
-/** CHECKING ETL EXECUTION  **/
+--CHECKING ETL EXECUTION 
 SELECT TOP 5 * FROM stagging_BusinessPartners
 
-/** SUCCESS!! **/
+--SUCCESS!! 
 
 SELECT TOP 5 * FROM stagging_Addresses
 SELECT TOP 5 * FROM stagging_Employees
@@ -32,7 +32,7 @@ SELECT TOP 5 * FROM stagging_SalesOrders
 without creating an ETL package for each  **/
 
 
-/**  TO DELETE ALL RECORDS FROM A TABLE WITHOUT DELETING THE TABLE  **/
+-- TO DELETE ALL RECORDS FROM A TABLE WITHOUT DELETING THE TABLE 
 delete from stagging_Addresses
 
 select * from stagging_Addresses
