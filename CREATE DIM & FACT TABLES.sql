@@ -287,7 +287,7 @@ CREATE TABLE [dbo].[DimProducts_EXT](
 GO
 
 
-/**For some reason, the code still created the tables that I didnt want.  Drop these tables**/
+--For some reason, the code still created the tables that I didnt want.  Drop these tables
 
 DROP TABLE [dbo].[DimProductCategories];
 DROP TABLE [dbo].[DimProductCategoryText];
