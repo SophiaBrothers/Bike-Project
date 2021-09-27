@@ -121,3 +121,28 @@ where PRODUCT_ID in (select PRODUCT_ID from Products_EXT GROUP BY PRODUCT_ID hav
 
 
 
+/*****************************************************************************************************
+Seeking ways to convert CREATEDAT column from int to date for ETL process
+*****************************************************************************************************/
+
+SELECT COL_LENGTH('ProductCAT_EXT', 'CREATEDAT')  
+--lenght of this column is 4. must be 8 for data type DT_DBDATE in SSIS
+
+
+select 
+CAST(CREATEDAT AS char(8))
+FROM ProductCat_EXT;
+
+
+
+select 
+CONVERT(date, CAST(CREATEDAT AS char(8)))
+FROM ProductCat_EXT;
+
+
+
+select pc.PRODCATEGORY_ID, pc.CREATEDBY, CONVERT(date, CAST(pc.CREATEDAT AS char(8))) as CREATEDAT, pcs.LANGUAGE,
+pcs.SHORT_DESCR, pcs.MEDIUM_DESCR, pcs.LONG_DESCR
+from ProductCategories pc 
+inner join ProductCategoryText pcs on pc.PRODCATEGORY_ID = pcs.PRODCATEGORY_ID;
+
