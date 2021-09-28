@@ -1,5 +1,18 @@
 use BikesDB
 
+
+/********************************   INITIAL EXAMINATION   ************************************/
+Select * from Addresses
+select * from BusinessPartners
+select * from Employees
+select * from ProductCategories
+select * from ProductCategoryText
+select * from Products
+select * from ProductTexts
+select * from SalesOrderItems
+select * from SalesOrders
+/***********************************************************************************************/
+
 select * from BusinessPartners 
 --40 rows
 
