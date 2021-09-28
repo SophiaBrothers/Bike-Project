@@ -19,8 +19,8 @@ CREATE TABLE [dbo].[DimAddresses](
 	[COUNTRY] [nvarchar](50) NOT NULL,
 	[REGION] [nvarchar](50) NOT NULL,
 	[ADDRESS_TYPE] [nvarchar](50) NOT NULL,
-	[VALIDITY_STARTDATE] [int] NULL,
-	[VALIDITY_ENDDATE] [int] NULL,
+	[VALIDITY_STARTDATE] [date] NULL,
+	[VALIDITY_ENDDATE] [date] NULL,
 	[LATITUDE] [float] NULL,
 	[LONGITUDE] [float] NULL
 ) ON [PRIMARY];
@@ -46,9 +46,9 @@ CREATE TABLE [dbo].[DimBusinessPartners](
 	[COMPANYNAME] [nvarchar](50) NOT NULL,
 	[LEGALFORM] [nvarchar](50) NULL,
 	[CREATEDBY] [nvarchar](50) NULL,
-	[CREATEDAT] [int] NULL,
+	[CREATEDAT] [date] NULL,
 	[CHANGEDBY] [nvarchar](50) NULL,
-	[CHANGEDAT] [int] NULL,
+	[CHANGEDAT] [date] NULL,
 	[CURRENCY] [nvarchar](50) NOT NULL
 ) ON [PRIMARY];
 GO
@@ -77,8 +77,8 @@ CREATE TABLE [dbo].[DimEmployees](
 	[EMAILADDRESS] [nvarchar](50) NOT NULL,
 	[LOGINNAME] [nvarchar](50) NOT NULL,
 	[ADDRESSID] [int] NOT NULL,
-	[VALIDITY_STARTDATE] [int] NOT NULL,
-	[VALIDITY_ENDDATE] [int] NOT NULL
+	[VALIDITY_STARTDATE] [date] NOT NULL,
+	[VALIDITY_ENDDATE] [date] NOT NULL
 ) ON [PRIMARY];
 GO
 
@@ -98,7 +98,7 @@ CREATE TABLE [dbo].[DimProductCat_EXT](
 	[PRODCATEGORY_KEY] [int] IDENTITY (1,1) NOT NULL PRIMARY KEY,
 	[PRODCATEGORY_ID] [nvarchar](50) NOT NULL,
 	[CREATEDBY] [int] NOT NULL,
-	[CREATEDAT] [int] NOT NULL,
+	[CREATEDAT] [date] NOT NULL,
 	[LANGUAGE] [nvarchar](50) NOT NULL,
 	[SHORT_DESCR] [nvarchar](50) NOT NULL,
 	[MEDIUM_DESCR] [nvarchar](1) NULL,
@@ -120,9 +120,9 @@ CREATE TABLE [dbo].[DimProducts_EXT](
 	[TYPECODE] [nvarchar](50) NOT NULL,
 	[PRODCATEGORY_ID] [nvarchar](50) NOT NULL,
 	[CREATEDBY] [nvarchar](50) NOT NULL,
-	[CREATEDAT] [int] NOT NULL,
+	[CREATEDAT] [date] NOT NULL,
 	[CHANGEDBY] [nvarchar](50) NOT NULL,
-	[CHANGEDAT] [int] NOT NULL,
+	[CHANGEDAT] [date] NOT NULL,
 	[SUPPLIER_PARTNER_ID] [int] NOT NULL,
 	[TAXTARIFFCODE] [nvarchar](50) NOT NULL,
 	[QUANTITYUNIT] [nvarchar](50) NOT NULL,
@@ -159,7 +159,7 @@ CREATE TABLE [dbo].[FactSalesOrderItems](
 	[ITEMATPSTATUS] [nvarchar](50) NOT NULL,
 	[QUANTITY] [nvarchar](50) NOT NULL,
 	[QUANTITYUNIT] [nvarchar](50) NOT NULL,
-	[DELIVERYDATE] [int] NOT NULL
+	[DELIVERYDATE] [date] NOT NULL
 ) ON [PRIMARY];
 GO
 
@@ -175,9 +175,9 @@ GO
 CREATE TABLE [dbo].[FactSalesOrders](
 	[SALESORDER_ID] [int] NOT NULL PRIMARY KEY,
 	[CREATEDBY] [nvarchar](50) NOT NULL,
-	[CREATEDAT] [int] NOT NULL,
+	[CREATEDAT] [date] NOT NULL,
 	[CHANGEDBY] [nvarchar](50) NOT NULL,
-	[CHANGEDAT] [int] NOT NULL,
+	[CHANGEDAT] [date] NOT NULL,
 	[FISCVARIANT] [nvarchar](50) NOT NULL,
 	[FISCALYEARPERIOD] [int] NOT NULL,
 	[PARTNER_KEY] [int] NOT NULL,
